@@ -21,43 +21,45 @@ DB Schema
 <img width="766" alt="image" src="https://user-images.githubusercontent.com/50523101/158023305-ff264c73-b7d1-42e3-be29-9591547d67d6.png">
 
 1. User Table
-User table is will contain user details like name, email, and isAdmin and other details
+   User table is will contain user details like name, email, and isAdmin and other details
 
-3. Station
-Station table will be responsible for station name, and other meta data of station.
+2. Station
+   Station table will be responsible for station name, and other meta data of station.
 
-4. Train
-Train table will be responsible for Train related queries, it contains train_no, name, no of coach in each category
+3. Train
+   Train table will be responsible for Train related queries, it contains train_no, name, no of coach in each category
 
-5. Coach Type
-This table will contain three different type of coaches, AC, NAC, SC so in future if any new coach come we need to change here. this table will also contain coach capacity
+4. Coach Type
+   This table will contain three different type of coaches, AC, NAC, SC so in future if any new coach come we need to change here. this table will also contain coach capacity
 
-6. Coach
-This table will be have foreign key of Train to know which train it belong and coach type for knowing type of coach
+5. Coach
+   This table will be have foreign key of Train to know which train it belong and coach type for knowing type of coach
 
-7. Seats
-This table will contain all the seats of specific coachs of a train
+6. Seats
+   This table will contain all the seats of specific coachs of a train
 
-8. SeatBookedTill
-This table will help us in letting know availability of seats, if user wants to know availability of seats from A to B, we can query this table for availibility
-this will be having lookup to seat, and src and destination station
+7. SeatBookedTill
+   This table will help us in letting know availability of seats, if user wants to know availability of seats from A to B, we can query this table for availibility
+   this will be having lookup to seat, and src and destination station
 
-9. Stops
-This table will hold all the stations and specific train will be travelling, it contain train no (FK), station (FK), stop_no: (order in which this stop will come 1 2 3 ..)
-this will help us in letting availbility of seats, for if seat booked from A to E, and user want availability of D to H, we don't know E comes first or D comes first, this table will help in that
+8. Stops
+   This table will hold all the stations and specific train will be travelling, it contain train no (FK), station (FK), stop_no: (order in which this stop will come 1 2 3 ..)
+   this will help us in letting availbility of seats, for if seat booked from A to E, and user want availability of D to H, we don't know E comes first or D comes first, this table will help in that
 
-10. TicketBooking
-This table will contain train, ticket, seats details
+9. TicketBooking
+   This table will contain train, ticket, seats details
 
-11. Seat booked
-This table will be having lookup to above tables and seat detail, as for one ticket we can have multiple seats this will store multiple seat info
+10. Seat booked
+    This table will be having lookup to above tables and seat detail, as for one ticket we can have multiple seats this will store multiple seat info
 
+Attached detailed schema of system as html file,
 
 api
 User
 view available seats in coach
+
 ```json
-1. "http://localhost:8000/api/get_availability" 
+1. "http://localhost:8000/api/get_availability"
 GET: Request body
 {
     "train_no": "",
@@ -88,6 +90,7 @@ book ticket
 ```
 
 Admin set of Request
+
 ```json
 View: "Remove coach: "http://localhost:8000/api/view_all_seats"
 GET
@@ -122,5 +125,5 @@ coach Type: "AC, NAC, SC"
 
 ```
 
-Didn't get a chance to test application, if any doubt please reach out to me
+Didn't get a chance to test application, if any doubt please reach out to me \n
 github repo: https://github.com/krishnvamsi03/train-booking-system/
