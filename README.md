@@ -54,31 +54,32 @@ DB Schema
 
 Attached detailed schema of system as html file,
 
-Please add these header for respective set of apis and also attached sample request body
-Header for User apis
-Key: Authorization
-Value: Token 850506ba1131f4d7c7b75e44d24c5750ee2ebddd
+Please add these header for respective set of apis and also attached sample request body  <br>
+Header for User apis <br>
+Key: Authorization  <br>
+Value: Token 850506ba1131f4d7c7b75e44d24c5750ee2ebddd  <br>
 
-Admin
-Key: Authorization
-Value: Token b5cd99a79b778a576958fc65af1f8d8b169f980d
+Admin  <br>
+Key: Authorization  <br>
+Value: Token b5cd99a79b778a576958fc65af1f8d8b169f980d  <br>
 
 User Set of views
-```json
 1. "http://localhost:8000/api/get_availability"
 
 GET: Request body
 Sample
+```json
 {
     "train_no": "12908",
     "coach_name": "AC1",
     "src": "Station B",
     "dest": "Station G"
 }
-
+```
 2. "http://localhost:8000/api/book_ticket"
 POST: request body
 book ticket
+```json
 {
     "train_no": "12908",
     "coach_name": "AC1",
@@ -99,40 +100,43 @@ book ticket
 
 Admin set of Request
 
-```json
+
 View: "Remove coach: "http://localhost:8000/api/view_all_seats"
 GET
 1. View all seats
+```json
 {
-    "train_no": "",
-    "coach_name": "",
+    "train_no": "12908",
+    "coach_name": "AC1"
 }
-
+```
 Add coach: "http://localhost:8000/api/add_coach"
 POST
 2. add Coach
+```json
 {
     "train_no": "12908",
     "coach_name": "AC4", 
     "coach_type": "AC Coach"
 }
-
+```
 Remove coach: "http://localhost:8000/api/remove_coach/AC4{you can use this from previous api}"
 DELETE
 3. remove coach
+```json
 {
     "train_no": "12908"
 }
-
-update: "Remove coach: "http://localhost:8000/api/update_coach/<str:coach_type>"
+```
+update: "Remove coach: "http://localhost:8000/api/update_coach/{AC Coach, NAC Coach, Seater -> anyone of these}"
 coach Type: "AC, NAC, SC"
 4. update coach
+```json
 {
-    "coach_type": "",
+    "coach_type": "AC Coach",
     "coach_capacity": 50,
 }
-
 ```
 
-Didn't get a chance to test application, if any doubt please reach out to me \n
+Didn't get a chance to test application, if any doubt please reach out to me <br>
 github repo: https://github.com/krishnvamsi03/train-booking-system/
