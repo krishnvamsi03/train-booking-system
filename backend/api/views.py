@@ -227,7 +227,7 @@ def update_coach_details(request: request, coach_type: str) -> Response:
     """
     if request.method == "PUT":
         coach_type = CoachType.objects.filter(coach_type=coach_type).first()
-        if coach_type is None:
+        if coach_type:
             coach_type.coach_type = request.data.get(
                 "coach_type", coach_type.coach_type)
             coach_type.coach_capacity = request.data.get(
