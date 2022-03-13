@@ -54,36 +54,44 @@ DB Schema
 
 Attached detailed schema of system as html file,
 
-api
-User
-view available seats in coach
+Please add these header for respective set of apis and also attached sample request body
+Header for User apis
+Key: Authorization
+Value: Token 850506ba1131f4d7c7b75e44d24c5750ee2ebddd
 
+Admin
+Key: Authorization
+Value: Token b5cd99a79b778a576958fc65af1f8d8b169f980d
+
+User Set of views
 ```json
 1. "http://localhost:8000/api/get_availability"
+
 GET: Request body
+Sample
 {
-    "train_no": "",
-    "coach_name": "",
-    "src": "src_station_name",
-    "dest": "dest_station_name",
+    "train_no": "12908",
+    "coach_name": "AC1",
+    "src": "Station B",
+    "dest": "Station G"
 }
+
 2. "http://localhost:8000/api/book_ticket"
 POST: request body
 book ticket
 {
-    "user_id": "",
-    "train_no": "",
-    "coach_name": "",
-    "src": "",
-    "dest": "",
+    "train_no": "12908",
+    "coach_name": "AC1",
+    "src": "Station G",
+    "dest": "Station H",
     "passenger_details": [
         {
-            "passenger_name": "name",
-            "seat_no": 2
+            "passenger_name": "p11",
+            "seat_no": 12
         },
         {
-            "passenger_name": "name",
-            "seat_no": 3
+            "passenger_name": "p12",
+            "seat_no": 13
         }
     ]
 }
@@ -97,24 +105,25 @@ GET
 1. View all seats
 {
     "train_no": "",
-    "coach_no": "",
+    "coach_name": "",
 }
 
 Add coach: "http://localhost:8000/api/add_coach"
 POST
 2. add Coach
 {
-    "train_no": "",
-    "coach_name": "",
-    "coach_type": ""
+    "train_no": "12908",
+    "coach_name": "AC4", 
+    "coach_type": "AC Coach"
 }
-Remove coach: "http://localhost:8000/api/remove_coach"
-POST
+
+Remove coach: "http://localhost:8000/api/remove_coach/AC4{you can use this from previous api}"
+DELETE
 3. remove coach
 {
-    "train_no": "",
-    "coach_name": ""
+    "train_no": "12908"
 }
+
 update: "Remove coach: "http://localhost:8000/api/update_coach/<str:coach_type>"
 coach Type: "AC, NAC, SC"
 4. update coach

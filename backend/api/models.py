@@ -85,7 +85,7 @@ class Stops(models.Model):
     train_stop_no = models.IntegerField(db_column="Train Stop No")
 
     def __str__(self):
-        return self.station
+        return str(self.train_stop_no) + "-" + self.station.station_name
 
 
 class TicketBooking(models.Model):
@@ -100,9 +100,11 @@ class TicketBooking(models.Model):
         to=Station, on_delete=models.CASCADE, related_name="%(class)s_station_booked", db_column="Station Booked From")
     dest_station = models.ForeignKey(
         to=Station, on_delete=models.CASCADE, related_name="%(class)s_station_till", db_column="Station Booked Till")
+    user = models.ForeignKey(
+        to=User, on_delete=models.CASCADE, db_column="User")
 
     def __str__(self):
-        return self.ticket_no
+        return str(self.ticket_no)
 
 
 class BookedSeat(models.Model):
@@ -112,4 +114,4 @@ class BookedSeat(models.Model):
     passengerName = models.CharField(max_length=20, db_column="Passenger Name")
 
     def __str__(self):
-        return self.seatNo + "-" + self.passengerName
+        return str(self.seatNo) + "-" + self.passengerName
