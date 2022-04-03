@@ -137,6 +137,3 @@ coach Type: "AC, NAC, SC"
     "coach_capacity": 50,
 }
 ```
-
-Didn't get a chance to test application, if any doubt please reach out to me <br>
-github repo: https://github.com/krishnvamsi03/train-booking-system/
